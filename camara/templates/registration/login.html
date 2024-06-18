@@ -1,0 +1,53 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" href="{% static "css/login.css" %}" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        body{
+            background-color: #09091e;
+        }
+        h3{
+            color: white;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .btn.btn-sm.btn-primary.float-end{
+            background-color: #e5c60a;
+            color: black;
+            border: 2px solid #e5c60a;
+            font-size: 15px;
+        }
+        .btn.btn-sm.btn-primary.float-end:hover{
+            background-color: transparent;
+            color: #e5c60a;
+        }
+
+    </style>
+    <h1><br></h1>
+    <br>
+    <h3>LOGIN</h3>
+    <br>
+    <body>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="card mx-auto" style="width: 30rem;">
+              <div class="card-body">
+                <h5 class="card-title">Ingrese sus Credenciales</h5>
+                {{ form | crispy }}
+                <a href={% url 'index' %} class="card-link">Inicio</a>
+                <a href={% url 'register' %} class="card-link">Registrarse</a>
+                <button class="btn btn-sm btn-primary float-end" type="submit">Iniciar Sesión</button>
+              </div>
+            </div>
+        </form>
+    </body>
+</html>
+{% endblock %}

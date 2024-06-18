@@ -1,0 +1,70 @@
+
+li{
+    color: white;
+    background-color: transparent;
+}
+.nav-link{
+    color: white;
+}
+.nav-item{
+    color: white;
+}
+.nav-link.active{
+    color: black;
+}
+.container{
+    background-color: transparent;
+}
+body{
+    background-color: transparent;
+}
+.navbar.navbar-expand-lg.navbar-light{
+    background-color: transparent;
+    text-align: right;
+}
+.container-fluid{
+    background-color: #12d0f3;
+    color: white;
+}
+.navbar-toggler{
+    background-color: #12d0f3;
+}
+.navbar-toggler-icon{
+    background-color: #12d0f3;
+}
+.collapse.navbar-collapse{
+    background-color: #12d0f3;
+}
+.navbar-nav{
+    background-color: #12d0f3;
+}
+.navbar-nav .nav-link.active {
+    color: white;
+}
+.nav-link.active:hover {
+    color: #12d0f3;
+    text-decoration: underline;
+}
+.nav-link:hover{
+    color: #12d0f3;
+    text-decoration: underline;
+}
+.btn.btn-outline-warning{
+    background-color: #12d0f3;
+    color: black;
+    font-size: 1.3rem;
+}
+.container-fluid{
+    background-color: #12d0f3;
+    color: white;
+    font-size: 1.3em;
+}
+.btn.btn-outline-warning{
+    background-color: #12d0f3;
+    color: black;
+    font-size: 1rem;
+}
+.btn.btn-outline-warning:hover{
+    background-color: transparent;
+    color: #12d0f3;
+}

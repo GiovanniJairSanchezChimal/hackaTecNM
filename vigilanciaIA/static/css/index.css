@@ -1,0 +1,19 @@
+{% load static %}
+
+h2{
+    text-align: left;
+    background-color:transparent;
+    color: white;
+}
+h3{
+    background-color: transparent;
+}
+
+h4{
+    color: white;
+    background-color: transparent;
+}
+
+head {
+    background-color: rgb(13, 122, 112);
+}

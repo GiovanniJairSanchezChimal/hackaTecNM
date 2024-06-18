@@ -1,0 +1,36 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" href="{% static "css/register.css" %}" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h3{
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><br></h1>
+        <br>
+        <h3>REGISTRO DE USUARIO</h3>
+        <br>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="card mx-auto" style="width: 30rem;">
+              <div class="card-body">
+                <h5 class="card-title">Complete todos los campos</h5>
+                {{ form | crispy }}
+                <a href={% url 'index' %} class="card-link">Inicio</a>
+                <a href={% url 'login' %} class="card-link">Iniciar sesion</a>
+                <button class="btn btn-sm btn-primary float-end" type="submit">Registrarse</button>
+              </div>
+            </div>
+        </form>
+    </body>
+</html>
+{% endblock %}
