@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
 
 # Inicializar el modelo YOLO
-model = YOLO('C:/Users/ghost/vigilanciaIA/camara/padi.pt')
+model = YOLO('D:/Ghost/Hackaton/vigilanciaIA/camara/padi.pt')
 pygame.mixer.init()
 
 # Diccionario de nombres de clases
