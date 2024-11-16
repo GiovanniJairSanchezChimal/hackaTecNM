@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'vigilanciaIA.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'vigilanciaia',
-        'USER': 'Mfeni',
-        'PASSWORD': 'Mfeni123',
-        'HOST': 'localhost',
+        'NAME': 'nz6qtn5ukegixrsw',
+        'USER': 'jf8e53sqnmylgthr',
+        'PASSWORD': 'bbao1o0voawk80z7',
+        'HOST': 'tkck4yllxdrw0bhi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         'PORT': '3306'
     }
 }

@@ -1,4 +1,8 @@
 <!-- camara/templates/video_stream.html -->
+{% extends 'navbar.html' %}
+
+{% block content %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,3 +18,4 @@
     <img src="{% url 'video_stream' %}" width="640" height="480" />
 </body>
 </html>
+{% endblock %}

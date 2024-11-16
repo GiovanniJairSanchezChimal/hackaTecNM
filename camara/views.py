@@ -4,14 +4,13 @@ from django.shortcuts import render, redirect
 import cv2
 import re
 import numpy as np
-import pygame
 from ultralytics import YOLO
 from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
+import os
 
 # Inicializar el modelo YOLO
-model = YOLO('D:/Ghost/Hackaton/vigilanciaIA/camara/padi.pt')
-pygame.mixer.init()
+model = YOLO('C:/Users/ghost/Proyectos_Dev/hackaton/vigilanciaIA/camara/best.pt')
 
 # Diccionario de nombres de clases
 names = {
@@ -30,17 +29,18 @@ names = {
 }
 
 def gen():
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
+    resultados = []  # Inicializar la variable resultados fuera del bucle
     while True:
         ret, frame = cap.read()
         if not ret:
             break
 
         # Detección de objetos
-        resultados = model.predict(frame, imgsz=640)
-        anotaciones = resultados[0].plot()
+        resultados_model = model.predict(frame, imgsz=640)
+        anotaciones = resultados_model[0].plot()
 
-        for r in resultados:
+        for r in resultados_model:
             boxes = r.boxes.cpu().numpy()
 
         str_boxes = str(boxes)
@@ -66,17 +66,12 @@ def gen():
                 name = names[result_id]
                 final_count.append(count)
                 final_name.append(name)
-                # Reproducir audio si se detecta una persona
-                if name == 'person':
-                    pygame.mixer.music.load('C:/Users/ghost/vigilanciaIA/camara/alarmaAlerta.mp3')
-                    pygame.mixer.music.play()
 
         resultados = []
         for nombre, valor in zip(final_name, final_count):
             resultados.append(f'{valor}:{nombre}')
 
         texto_final = '\n'.join(resultados)
-        #for i in resultados
 
         # Convertir frame anotado a JPEG
         ret, jpeg = cv2.imencode('.jpg', anotaciones)
@@ -84,15 +79,14 @@ def gen():
 
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-    return redirect('video_stram.html', resultados = resultados)
     cap.release()
+    return redirect('video_stram.html', resultados = resultados)
 
 def video_stream(request):
     return StreamingHttpResponse(gen(),
                                  content_type='multipart/x-mixed-replace; boundary=frame')
 
 def video(request):
-
     return render(request, 'video_stream.html')
 
 def index(request):
